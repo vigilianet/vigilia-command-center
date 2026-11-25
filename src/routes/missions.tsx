@@ -102,7 +102,7 @@ function MissionsView({ w, refresh }: { w: Workspace; refresh: () => void }) {
 
   async function handleExecBranch(id: string) {
     const cfg = branchInput[id] ?? { base: "main", next: "" };
-    if (!cfg.next.trim()) return toast.error("Indiquez le nom de la nouvelle branche.");
+    if (!cfg.next.trim()) { toast.error("Indiquez le nom de la nouvelle branche."); return; }
     try {
       const r = await execAppr({ data: { id, baseBranch: cfg.base || "main", newBranch: cfg.next.trim() } });
       toast.success(`Branche créée : ${r.branch}`);

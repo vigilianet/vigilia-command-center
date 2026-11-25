@@ -72,7 +72,7 @@ function SettingsView({ w, refresh }: { w: Workspace; refresh: () => void }) {
 
   async function handleChangePassword(e: React.FormEvent) {
     e.preventDefault();
-    if (newPwd.length < 8) return toast.error("8 caractères minimum pour le nouveau mot de passe.");
+    if (newPwd.length < 8) { toast.error("8 caractères minimum pour le nouveau mot de passe."); return; }
     setPwdBusy(true);
     try {
       const { error } = await supabase.auth.updateUser({ password: newPwd, current_password: curPwd } as never);

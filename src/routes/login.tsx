@@ -60,7 +60,7 @@ function LoginPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const cleanEmail = email.trim();
-    if (!cleanEmail) return toast.error("Veuillez saisir votre adresse e-mail.");
+    if (!cleanEmail) { toast.error("Veuillez saisir votre adresse e-mail."); return; }
     setBusy(true);
     setNotice(null);
     try {

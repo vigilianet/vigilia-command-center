@@ -35,8 +35,8 @@ function ResetPasswordPage() {
 
   async function handleReset(e: React.FormEvent) {
     e.preventDefault();
-    if (password.length < 8) return toast.error("Utilisez au moins 8 caractères.");
-    if (password !== confirm) return toast.error("Les mots de passe ne correspondent pas.");
+    if (password.length < 8) { toast.error("Utilisez au moins 8 caractères."); return; }
+    if (password !== confirm) { toast.error("Les mots de passe ne correspondent pas."); return; }
     setBusy(true);
     try {
       const { error } = await supabase.auth.updateUser({ password });
