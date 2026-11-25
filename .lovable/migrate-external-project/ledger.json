@@ -1,0 +1,15 @@
+{
+  "source": "github:https://github.com/Landry-kayoyo/vigilia-command-center-98e3812d.git",
+  "capabilities": [
+    { "capability": "code", "source": "github", "outcome": "migrate", "status": "in_progress", "next_action": "Import backend modules, design system, and complete all 10 UI screens + login" },
+    { "capability": "schema", "source": "drizzle/migrations/0000_vigilia_schema.sql", "outcome": "migrate", "status": "in_progress", "next_action": "Apply PostgreSQL schema to Lovable Cloud with strict owner_email access" },
+    { "capability": "records", "source": "absent", "outcome": "migrate", "status": "pending", "next_action": "Request CSV/JSON export after preview if user has previous data" },
+    { "capability": "auth_identities", "source": "workspace_access", "outcome": "migrate", "status": "in_progress", "next_action": "Enable Email, Google, and Lovable auth; restrict owner role to Kayoyolandry@gmail.com" },
+    { "capability": "authorization", "source": "user_roles + RLS", "outcome": "migrate", "status": "in_progress", "next_action": "Verify restrictive personal_owner_only RLS and ownerOnly server middleware" },
+    { "capability": "scheduled_checks", "source": "/api/public/jobs/run-checks", "outcome": "migrate", "status": "pending", "next_action": "Create /api/public/jobs/run-checks route and schedule periodic HTTP checks" },
+    { "capability": "telegram_webhook", "source": "/api/public/telegram/webhook", "outcome": "preserve", "status": "pending", "next_action": "Import webhook route and client; live bot test requires user bot token" },
+    { "capability": "github_integration", "source": "src/lib/github/client.server.ts", "outcome": "preserve", "status": "pending", "next_action": "Import GitHub client; verify public repo inspection and approval branch guard" },
+    { "capability": "ai_orchestrator", "source": "@lovable.dev/ai-gateway", "outcome": "preserve", "status": "pending", "next_action": "Generate gateway types and verify routed completion & failover rules" },
+    { "capability": "verification", "source": "vitest + playwright", "outcome": "verify", "status": "pending", "next_action": "Run unit tests, build check, and desktop + mobile Playwright verification" }
+  ]
+}

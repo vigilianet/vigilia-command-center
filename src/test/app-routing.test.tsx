@@ -14,4 +14,26 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches all Vigilia screens and authentication routes", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const paths = [
+      "/",
+      "/login",
+      "/reset-password",
+      "/assistant",
+      "/agents",
+      "/projects",
+      "/missions",
+      "/monitoring",
+      "/integrations",
+      "/providers",
+      "/logs",
+      "/settings",
+    ];
+    for (const p of paths) {
+      const matches = router.matchRoutes(p);
+      expect(matches.at(-1)?.routeId, `route for ${p}`).not.toBe(rootRouteId);
+    }
+  });
 });

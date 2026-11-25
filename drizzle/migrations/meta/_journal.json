@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795583357382,
+      "tag": "0000_vigilia_schema_and_owner_access",
+      "breakpoints": true
+    }
+  ]
+}
